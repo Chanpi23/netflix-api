@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { MongoClient, ObjectId } = require("mongodb");
+const MongoClient = require("mongodb").MongoClient
 require("dotenv").config();
 const PORT = 8000;
 
@@ -16,7 +16,7 @@ MongoClient.connect(dbConnectionStr).then((client) => {
   collection = db.collection("movies");
 });
 
-app.use(express.urlencoded)({ extended: true });
+app.use(express.urlencoded ({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
