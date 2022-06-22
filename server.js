@@ -16,11 +16,11 @@ MongoClient.connect(dbConnectionStr).then((client) => {
   collection = db.collection("movies");
 });
 
-app.arguments(express.urlencoded)({ extended: true });
-app.arguments(express.json());
-app.arguments(cors());
+app.use(express.urlencoded)({ extended: true });
+app.use(express.json());
+app.use(cors());
 
-app.arguments("/search", async (request, response) => {
+app.use("/search", async (request, response)  => {
   try {
     let results = await collection.aggregate([
       {
