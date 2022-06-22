@@ -12,7 +12,7 @@ collection;
 
 MongoClient.connect(dbConnectionStr).then((client) => {
   console.log("Connected to database");
-  dbName = client.db(dbName);
+  db = client.db(dbName);
   collection = db.collection("movies");
 });
 
